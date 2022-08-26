@@ -1,0 +1,44 @@
+server:
+  port: '8085'
+
+spring:
+  profiles:
+    active: dev2
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: counter
+    url: jdbc:mysql://localhost:3306/counter?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
+
+    password: counter1123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: 'true'
+  config:
+    activate:
+      on-profile: dev2
+
+
+db:
+  evtp:
+    username: vtp
+    password: Cntt#2018#
+    url: jdbc:oracle:thin:@10.60.117.73:1521:evtp
