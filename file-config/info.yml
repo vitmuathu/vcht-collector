@@ -1,0 +1,6 @@
+ file : 
+    url: jdbc:oracle:thin:@10.60.117.73:1521:evtp
+    user: vtp
+    password: Cntt#2018#
+
+

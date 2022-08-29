@@ -67,8 +67,7 @@ public class VCHTJob {
 //        // getting the record of 3rd row
 //    }
 //    @Scheduled(fixedRate = 2000)
-//    @Scheduled(fixedRate = 2000000)
-//    @Async
+    @Scheduled(fixedRate = 2000000)
     public void evtpCrawl() {
         System.out.println("Start job");
         try (
@@ -84,7 +83,7 @@ public class VCHTJob {
                     "from VC_HANHTRINH\n" +
                     "where NGAY_NHAP_MAY >= to_timestamp('%s', 'dd-mm-yyyy hh24:mi:ss')\n" +
                     "  and NGAY_NHAP_MAY <= to_timestamp('%s', 'dd-mm-yyyy hh24:mi:ss')", timeStamp2, timeStamp);
-
+            System.out.println(sqlSelect2);
             String selectBaseIDHT = String.format("SELECT * from (select * from VC_HANHTRINH where ID_HANHTRINH > %d order by ID_HANHTRINH) where rownum <= %d", ID_HANHTRINH, 100);
             System.out.println(selectBaseIDHT);
             long startTime = System.currentTimeMillis();

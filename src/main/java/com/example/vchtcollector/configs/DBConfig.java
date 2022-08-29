@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class DBConfig {
 
-    @Value("db.evtp.username")
+    @Value("${db.evtp.username}")
     private String evtpUsername;
 
     @Value("db.evtp.password")
