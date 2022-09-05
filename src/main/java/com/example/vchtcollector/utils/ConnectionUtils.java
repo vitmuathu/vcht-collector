@@ -4,15 +4,12 @@ import com.example.vchtcollector.configs.DBConfig;
 import com.example.vchtcollector.configs.LoadConfig;
 import com.mysql.cj.jdbc.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-@Component
+
 public class ConnectionUtils {
 
     private static final String hostName = "127.0.0.1";
@@ -36,9 +33,10 @@ public class ConnectionUtils {
 
 
     public static Connection oracleConnection() throws SQLException, ClassNotFoundException {
-        conf.loadConfig();
-        System.out.println(dbConfig.getEvtpUsername()+"------------------------------------------");
+//        conf.loadConfig();
+//        System.out.println(dbConfig.getEvtpUsername()+"------------------------------------------");
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        return DriverManager.getConnection(conf.getUrl(),conf.getUser(),conf.getPassword());
+//        return DriverManager.getConnection(conf.getUrl(),conf.getUser(),conf.getPassword());
+        return DriverManager.getConnection("jdbc:oracle:thin:@10.60.117.73:1521:evtp", "vtp", "Cntt#2018#");
     }
 }

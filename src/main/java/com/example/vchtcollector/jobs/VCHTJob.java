@@ -23,7 +23,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-@Service
+//@Service
 @Slf4j
 public class VCHTJob {
     @Autowired
@@ -38,35 +38,6 @@ public class VCHTJob {
     private final Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
             ResultSet.CONCUR_READ_ONLY);
     private Long ID_HANHTRINH = 3449805000L;
-
-    //    @Scheduled(fixedRate = 1000)
-//    @Async
-//    public void insert2DB() throws SQLException {
-//        try {
-//            String sqlInsert = "INSERT INTO user(username, password, createdDate) "
-//                    + " VALUE('user2', '123', now());";
-//            int numberRowsAffected = st.executeUpdate(sqlInsert);
-//            System.out.println("Affected rows after inserted: " + numberRowsAffected);
-//        } catch (Exception exception) {
-//            System.out.println(exception.getMessage());
-//        }
-//    }
-//    @Scheduled(fixedRate = 2000)
-//    @Async
-//    public void selectDB() throws SQLException {
-//        String sqlSelect = "SELECT * FROM user;";
-//        long startTime = System.currentTimeMillis();
-//        ResultSet resultSet = st.executeQuery(sqlSelect);
-//        long endTime = System.currentTimeMillis();
-//        int size = 0;
-//        if (resultSet != null) {
-//            resultSet.last();    // moves cursor to the last row
-//            size = resultSet.getRow(); // get row id
-//        }
-//        System.out.println("get all record of db " + size + " execution time: " + (endTime - startTime));
-//        // getting the record of 3rd row
-//    }
-//    @Scheduled(fixedRate = 2000)
     @Scheduled(fixedRate = 2000000)
     public void evtpCrawl() {
         System.out.println("Start job");
